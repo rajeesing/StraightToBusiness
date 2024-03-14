@@ -2,7 +2,10 @@
 Docker is a powerful tool that provides a platform to package solutions for deployment. We can think like a box containing your OS/Code/Dependencies and the application runs using that box's resources only.
 
 It is similar to VM except VM has its own guest OS but docker only works on host OS. 
+## Install Docker For Windows
+Refer below link to install Docker Desktop on Windows. You can use any operating system, but this example is for Windows however almost all mentioned steps are similar across all operating systems
 
+https://docs.docker.com/desktop/install/windows-install/ 
 ## Create a simple HTML and run it within docker environment
 1.	Create a folder (ex. sample-docker) with one html file with name index.html (all lower case)
 2.	Outside of the folder create a docker file with name dockerfile (no extension)
