@@ -22,7 +22,9 @@ docker build -t sample-docker .
 ```
 docker run –name <your-custom-name> -p 9800:80 sample-docker
 ```
-11.	Open the browser and type https://localhost:9800 and you should be seeing your html file output.
+> You can use -p switch to bind a port to a container. Each container running under a docker host and obtain a unique random IP address. For ex. if a container assign a IP address 172.168.1.1 and running a .net application then you can access your application using https://172.168.1.1:80 when your browser runs inside docker host. But your browser or any client which runs outside host needs a proper port mapping to access docker host container. 
+
+10.	Open the browser and type https://localhost:9800 and you should be seeing your html file output.
 
 # Docker Commands
 1. List Images: ``` docker images ```
