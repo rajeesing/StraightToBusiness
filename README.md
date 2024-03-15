@@ -23,3 +23,11 @@ docker build -t sample-docker .
 docker run –name <your-custom-name> -p 9800:80 sample-docker
 ```
 11.	Open the browser and type https://localhost:9800 and you should be seeing your html file output.
+
+# Docker Commands
+1. List Images: ``` docker images ```
+2. List All Containers: ```docker ps -a ```
+3. Remove Image: ```docker rmi <image id or repo name>```
+4. Remove Container: ```docker rm <container id> ```
+5. Change Image Tag: ``` docker tag <old> <new> ```
+6. Stop Container: ```docker stop <container id> ```
