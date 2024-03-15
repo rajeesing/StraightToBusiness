@@ -38,4 +38,4 @@ docker run –name <your-custom-name> -p 9800:80 sample-docker
 9. Start a container: ```docker start <container id>```
 10. All container ids: ```docker ps -a -q```
 11. Delete multiple containers: ```docker rm $(docker ps -a -q)``` (nested command)
-12. Delete by force: ```--force``` (user can use this switch will any delete command)
+12. Delete by force: ```--force``` (user can use this switch to kill any delete command forcefully)
