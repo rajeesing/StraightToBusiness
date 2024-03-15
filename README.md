@@ -26,10 +26,16 @@ docker run –name <your-custom-name> -p 9800:80 sample-docker
 
 10.	Open the browser and type https://localhost:9800 and you should be seeing your html file output.
 
-# Docker Commands
+# Docker Commands 
 1. List Images: ``` docker images ```
 2. List All Containers: ```docker ps -a ```
 3. Remove Image: ```docker rmi <image id or repo name>```
-4. Remove Container: ```docker rm <container id> ```
+4. Remove Container: ```docker rm <container id> ``` (you can use multiple container ids separated by space)
 5. Change Image Tag: ``` docker tag <old> <new> ```
 6. Stop Container: ```docker stop <container id> ```
+7. Kill the container: ```docker kill <Container id>```
+8. Stop the container: ```docker stop <container id>```
+9. Start a container: ```docker start <container id>```
+10. All container ids: ```docker ps -a -q```
+11. Delete multiple containers: ```docker rm $(docker ps -a -q)``` (nested command)
+12. Delete by force: ```--force``` (user can use this switch will any delete command)
