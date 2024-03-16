@@ -34,8 +34,9 @@ docker run –name <your-custom-name> -p 9800:80 sample-docker
 5. Change Image Tag: ``` docker tag <old> <new> ```
 6. Stop Container: ```docker stop <container id> ```
 7. Kill the container: ```docker kill <Container id>```
-8. Stop the container: ```docker stop <container id>```
-9. Start a container: ```docker start <container id>```
-10. All container ids: ```docker ps -a -q```
-11. Delete multiple containers: ```docker rm $(docker ps -a -q)``` (nested command)
-12. Delete by force: ```--force``` (user can use this switch to kill any delete command forcefully)
+9. Stop the container: ```docker stop <container id>```
+10. Start a container: ```docker start <container id>```
+11. All container ids: ```docker ps -a -q```
+12. Delete multiple containers: ```docker rm $(docker ps -a -q)``` (nested command)
+13. Delete by force: ```--force``` (user can use this switch to kill any delete command forcefully)
+14. Execute any util inside docker: ```docker exec -it <container id> bash``` it executes the bash for the container
