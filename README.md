@@ -43,3 +43,4 @@ docker run –name <your-custom-name> -p 9800:80 sample-docker
 15. Add Environment Variable: ```-e <key>=<value>``` (repeat in case of multiple)
 16. Run container in detach mode: ```docker run -d <image name> -p 9000:80```
 17. Connect to your terminal of container: ```use -i -t or -it ex. docker exec -it <container id> bash``` with docker run
+18. Create a volume: ```docker run -d -v c:\dockerfiles:/usr/share/nginx/dockerfiles -name <container name> -p 9000:80 <imagename>:<tag>``` Volume is persist values even when container stopped running.
