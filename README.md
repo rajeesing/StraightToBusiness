@@ -40,3 +40,6 @@ docker run –name <your-custom-name> -p 9800:80 sample-docker
 12. Delete multiple containers: ```docker rm $(docker ps -a -q)``` (nested command)
 13. Delete by force: ```--force``` (user can use this switch to kill any delete command forcefully)
 14. Execute any util inside docker: ```docker exec -it <container id> bash``` it executes the bash for the container
+15. Add Environment Variable: ```-e <key>=<value>``` (repeat in case of multiple)
+16. Run container in detach mode: ```docker run -d <image name> -p 9000:80```
+17. Connect to your terminal of container: ```use -i -t or -it ex. docker exec -it <container id> bash``` with docker run
