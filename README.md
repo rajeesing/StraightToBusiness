@@ -67,6 +67,6 @@ In the above command, file dotnet publish is most important to build your projec
 
 here -c stands for configuration and -o stands for output. You can simply get the help of dotnet publish by input ```dotnet publish -h``` command in your terminal window.
 
-Just to check if publish command working, you can copy this command and run on your terminal, you will notice app directory created with supporting output (dll etc.), perhaps in your C:\ and then goto app directory and run ```dotnet <your dll file name>```. In output, copy the url and paste in your browser to see the output.
+Just to check if publish command working, you can copy this command and run on your terminal, you will notice app directory created with supporting output (dll etc.), perhaps in your C:\ and then goto app directory and run ```dotnet <your dll file name>```. In output, copy the url and paste in your browser to see the output and the same command your can see above dockerfile ENTRYPOINT section.
 
 
