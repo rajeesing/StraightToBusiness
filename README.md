@@ -71,6 +71,6 @@ Just to check if publish command working, you can copy this command and run on y
 
 Now you want to run your application using docker, which you can do by running ```docker build -t sample-docker:1.0.0 .```. You can simply check your image by firing ```docker images```. Now you can use ```docker run -p 9000:5000 -e DOTNET_URLS=http://+:5000 --name=sample-docker sample-docker:1.0.0``` here we have set the enviornment variable with -e switch called DOTNET_URLS because of dotnet application, name=sample-docker is container name and sample-docker:1.0.0 is image name with it's tag information.
 
-#Push Images to Hub
+# Push Images to Hub
 You can use ```docker push <image name>:<tag name>``` but make sure you are logged in terminal. To logic you can use ```docker login```. You can observe in your docker hub portal that one image got created. This image you can pull to create container by using ```docker pull <name of hub image>:<tag>``` and then build container by using ```docker run -p 9001:5000 -e DOTNET_URLS=http://+:5000 <image name:<tag>```
 
