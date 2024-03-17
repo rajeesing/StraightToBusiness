@@ -74,3 +74,15 @@ Now you want to run your application using docker, which you can do by running `
 # Push Images to Hub
 You can use ```docker push <image name>:<tag name>``` but make sure you are logged in terminal. To logic you can use ```docker login```. You can observe in your docker hub portal that one image got created. This image you can pull to create container by using ```docker pull <name of hub image>:<tag>``` and then build container by using ```docker run -p 9001:5000 -e DOTNET_URLS=http://+:5000 <image name:<tag>```
 
+# Deploy your image to Azure Container Instance
+1. Copy the image name
+2. Create a container instance in Azure Portal, while creating select Image Source field as Other Registry and input your image name in Image field.
+3. Add the DNS name in networking tab and put the port number.
+4. Finally, create container. After couple of minutes deployment will be done.
+5. Copy FQDN, paste on browser url with port number, you should see your app running.
+
+# Deploy to Azure Container App
+You will get Image source option which you can use Docker hub and put your image name. Additinally you need to select Ingress[^1]. tag's option.
+
+[^1]: Ingress, conversely, pertains to the flow of data into a private network from an external source, typically the public internet. In cloud computing, managing ingress effectively is key to maintaining network integrity and security.
+
