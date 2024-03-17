@@ -44,3 +44,21 @@ docker run –name <your-custom-name> -p 9800:80 sample-docker
 16. Run container in detach mode: ```docker run -d <image name> -p 9000:80```
 17. Connect to your terminal of container: ```use -i -t or -it ex. docker exec -it <container id> bash``` with docker run
 18. Create a volume: ```docker run -d -v c:\dockerfiles:/usr/share/nginx/dockerfiles -name <container name> -p 9000:80 <imagename>:<tag>``` Volume is persist values even when container stopped running.
+
+# Dockerfile with .Net Application
+However when you create a new .Net Core application using Visual Studio IDE, In the template you will see an option to add a docker capability which adds automatically dockerfile with predefined code to spin a container from an image. But you can use your own docker file to for your .net application later.
+```
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+COPY ./sample-docker.csproj ./
+RUN dotnet restore "sample-docker.csproj"
+COPY . .
+RUN dotnet publish ./sample-docker.csproj -c Release  -o /app/
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS final
+WORKDIR /app
+COPY --from=build /app .
+ENTRYPOINT ["dotnet","sample-docker.dll"]
+```
+
