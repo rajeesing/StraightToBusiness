@@ -61,4 +61,12 @@ WORKDIR /app
 COPY --from=build /app .
 ENTRYPOINT ["dotnet","sample-docker.dll"]
 ```
+In the above command, file dotnet publish is most important to build your project and publish. You can simply build first and then publish but dotnet publish automatically build, so you can directly use dotnet publish to do both operation together. Below is the explanation for this command
+
+![image](https://github.com/rajeesing/learndocker/assets/7796293/e27f84ba-ca13-4acc-9b02-7b18542da12a)
+
+here -c stands for configuration and -o stands for output. You can simply get the help of dotnet publish by input ```dotnet publish -h``` command in your terminal window.
+
+Just to check if publish command working, you can copy this command and run on your terminal, you will notice app directory created with supporting output (dll etc.), perhaps in your C:\ and then goto app directory and run ```dotnet <your dll file name>```. In output, copy the url and paste in your browser to see the output.
+
 
