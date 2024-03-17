@@ -67,6 +67,20 @@ In the above command, file dotnet publish is most important to build your projec
 
 here -c stands for configuration and -o stands for output. You can simply get the help of dotnet publish by input ```dotnet publish -h``` command in your terminal window.
 
+```
+dotnet publish [<PROJECT>|<SOLUTION>] [-a|--arch <ARCHITECTURE>]
+    [-c|--configuration <CONFIGURATION>] [--disable-build-servers]
+    [-f|--framework <FRAMEWORK>] [--force] [--interactive]
+    [--manifest <PATH_TO_MANIFEST_FILE>] [--no-build] [--no-dependencies]
+    [--no-restore] [--nologo] [-o|--output <OUTPUT_DIRECTORY>]
+    [--os <OS>] [-r|--runtime <RUNTIME_IDENTIFIER>]
+    [--sc|--self-contained [true|false]] [--no-self-contained]
+    [-s|--source <SOURCE>] [--tl:[auto|on|off]]
+    [--use-current-runtime, --ucr [true|false]]
+    [-v|--verbosity <LEVEL>] [--version-suffix <VERSION_SUFFIX>]
+```
+[Click here to know more about docker publish](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish)
+
 Just to check if publish command working, you can copy this command and run on your terminal, you will notice app directory created with supporting output (dll etc.), perhaps in your C:\ and then goto app directory and run ```dotnet <your dll file name>```. In output, copy the url and paste in your browser to see the output and the same command your can see above dockerfile ENTRYPOINT section.
 
 Now you want to run your application using docker, which you can do by running ```docker build -t sample-docker:1.0.0 .```. You can simply check your image by firing ```docker images```. Now you can use ```docker run -p 9000:5000 -e DOTNET_URLS=http://+:5000 --name=sample-docker sample-docker:1.0.0``` here we have set the enviornment variable with -e switch called DOTNET_URLS because of dotnet application, name=sample-docker is container name and sample-docker:1.0.0 is image name with it's tag information.
