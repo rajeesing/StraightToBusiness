@@ -93,7 +93,7 @@ You can use ```docker push <image name>:<tag name>``` but make sure you are logg
 2. Create a container instance in Azure Portal, while creating select Image Source field as Other Registry and input your image name in Image field.
 3. Add the DNS name in networking tab and put the port number.
 4. Finally, create container. After couple of minutes deployment will be done.
-5. Copy FQDN, paste on browser url with port number, you should see your app running.
+5. Copy FQDN (Fully Qualified Domain Name), paste on browser url with port number, you should see your app running.
 
 # Deploy to Azure Container App
 You will get Image source option which you can use Docker hub and put your image name. Additinally you need to select Ingress[^1]. tag's option.
