@@ -22,9 +22,9 @@ docker build -t sample-docker .
 ```
 docker run –name <your-custom-name> -p 9800:80 sample-docker
 ```
-> You can use -p switch to bind a port to a container. Each container running under a docker host and obtain a unique random IP address. For ex. if a container assign a IP address 172.168.1.1 and running a .net application then you can access your application using https://172.168.1.1:80 when your browser runs inside docker host. But your browser or any client which runs outside host needs a proper port mapping to access docker host container. 
+> You can use -p switch to bind a port to a container. Each container runs under a docker host and obtains a unique random IP address. For ex. if a container assign a IP address of 172.168.1.1 and runs a .net application then you can access your application using https://172.168.1.1:80 when your browser runs inside the docker host. But your browser or any client that runs outside the host needs a proper port mapping to access the docker host container. 
 
-10.	Open the browser and type https://localhost:9800 and you should be seeing your html file output.
+10.	Open the browser and type https://localhost:9800 and you should see your HTML file output.
 
 # Docker Commands 
 1. List Images: ``` docker images ```
@@ -46,7 +46,7 @@ docker run –name <your-custom-name> -p 9800:80 sample-docker
 18. Create a volume: ```docker run -d -v c:\dockerfiles:/usr/share/nginx/dockerfiles -name <container name> -p 9000:80 <imagename>:<tag>``` Volume is persist values even when container stopped running.
 
 # Dockerfile with .Net Application
-However when you create a new .Net Core application using Visual Studio IDE, In the template you will see an option to add a docker capability which adds automatically dockerfile with predefined code to spin a container from an image. But you can use your own docker file to for your .net application later.
+However, when you create a new .Net Core application using Visual Studio IDE, In the template you will see an option to add a docker capability which adds automatically a docker file with predefined code to spin a container from an image. But you can use your own docker file for your .net application later.
 ```
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
@@ -81,22 +81,22 @@ dotnet publish [<PROJECT>|<SOLUTION>] [-a|--arch <ARCHITECTURE>]
 ```
 [Click here to know more about docker publish](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish)
 
-Just to check if publish command working, you can copy this command and run on your terminal, you will notice app directory created with supporting output (dll etc.), perhaps in your C:\ and then goto app directory and run ```dotnet <your dll file name>```. In output, copy the url and paste in your browser to see the output and the same command your can see above dockerfile ENTRYPOINT section.
+Just to check if the publish command is working, you can copy this command and run it on your terminal, you will notice an app directory created with supporting output (dll etc.), perhaps in your C:\, and then go to the app directory and run ```dotnet <your dll file name>```. In the output, copy the URL and paste it into your browser to see the output and the same command you can see above dockerfile ENTRYPOINT section.
 
-Now you want to run your application using docker, which you can do by running ```docker build -t sample-docker:1.0.0 .```. You can simply check your image by firing ```docker images```. Now you can use ```docker run -p 9000:5000 -e DOTNET_URLS=http://+:5000 --name=sample-docker sample-docker:1.0.0``` here we have set the enviornment variable with -e switch called DOTNET_URLS because of dotnet application, name=sample-docker is container name and sample-docker:1.0.0 is image name with it's tag information.
+Now you want to run your application using docker, which you can do by running ```docker build -t sample-docker:1.0.0 .```. You can simply check your image by firing ```docker images```. Now you can use ```docker run -p 9000:5000 -e DOTNET_URLS=http://+:5000 --name=sample-docker sample-docker:1.0.0``` here we have set the environment variable with -e switch called DOTNET_URLS because of dot net application, name=sample-docker is container name and sample-docker:1.0.0 is image name with it's tag information.
 
 # Push Images to Hub
-You can use ```docker push <image name>:<tag name>``` but make sure you are logged in terminal. To logic you can use ```docker login```. You can observe in your docker hub portal that one image got created. This image you can pull to create container by using ```docker pull <name of hub image>:<tag>``` and then build container by using ```docker run -p 9001:5000 -e DOTNET_URLS=http://+:5000 <image name:<tag>```
+You can use ```docker push <image name>:<tag name>``` but make sure you are logged in terminal. To logic, you can use ```docker login```. You can observe in your docker hub portal that one image got created. This image you can pull to create container by using ```docker pull <name of hub image>:<tag>``` and then build container by using ```docker run -p 9001:5000 -e DOTNET_URLS=http://+:5000 <image name:<tag>```
 
 # Deploy your image to Azure Container Instance
 1. Copy the image name
-2. Create a container instance in Azure Portal, while creating select Image Source field as Other Registry and input your image name in Image field.
-3. Add the DNS name in networking tab and put the port number.
-4. Finally, create container. After couple of minutes deployment will be done.
-5. Copy FQDN (Fully Qualified Domain Name), paste on browser url with port number, you should see your app running.
+2. Create a container instance in Azure Portal, while creating select the Image Source field as Other Registry and input your image name in the Image field.
+3. Add the DNS name in the networking tab and put the port number.
+4. Finally, create a container. After a couple of minutes, deployment will be done.
+5. Copy FQDN (Fully Qualified Domain Name), and paste on the browser URL with the port number, you should see your app running.
 
 # Deploy to Azure Container App
-You will get Image source option which you can use Docker hub and put your image name. Additinally you need to select Ingress[^1]. tag's option.
+You will get an Image source option which you can use the Docker hub and put your image name. Additionally, you need to select Ingress[^1]. tag's option.
 
 [^1]: Ingress, conversely, pertains to the flow of data into a private network from an external source, typically the public internet. In cloud computing, managing ingress effectively is key to maintaining network integrity and security.
 
