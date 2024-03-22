@@ -16,7 +16,7 @@ https://docs.docker.com/desktop/install/windows-install/
 ```
 docker build -t sample-docker .
 ```
-7.	Now if you want to see, type docker images command to verify your image has been created with latest tag. Note - you can have your tag with build ex. ``` docker build -t sample-docker:1.0.0 ```
+7.	Now if you want to see, type ```docker images``` command to verify your image has been created with latest tag. Note - you can have your tag with build ex. ``` docker build -t sample-docker:1.0.0 ```
 8.	Now you have two images created one is server and another your application.
 9.	Now you can run your image with the help of below command.
 ```
