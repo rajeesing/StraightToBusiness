@@ -20,7 +20,7 @@ docker build -t sample-docker .
 8.	Now you have two images created one is server and another your application.
 9.	Now you can run your image with the help of below command.
 ```
-docker run –name <your-custom-name> -p 9800:80 sample-docker
+docker run -–name <your-custom-name> -p 9800:80 sample-docker:<tag>
 ```
 > You can use -p switch to bind a port to a container. Each container runs under a docker host and obtains a unique random IP address. For ex. if a container assign a IP address of 172.168.1.1 and runs a .net application then you can access your application using https://172.168.1.1:80 when your browser runs inside the docker host. But your browser or any client that runs outside the host needs a proper port mapping to access the docker host container. 
 
