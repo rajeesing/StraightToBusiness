@@ -22,3 +22,10 @@ var callback = function(){
 };
 setTimeout(callback, 1000);
 ```
+or
+
+```
+setTimeout(() => {
+      console.log("This line will run after a second");
+}, 1000);
+```
