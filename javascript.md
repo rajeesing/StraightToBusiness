@@ -5,4 +5,20 @@ It's dynamic programming language used to control multimedia content on your web
    
 Stack hold the execution block based on order of calls and keep poping the execution block once done it's execution context. Any callback will holds by queue and after all execution, callbacks executes. Event loop continuously checks for any new message for execution else exit. 
 
+## Callback
+Callback is any function which you are passing as argument to another function. This can be store in any variable like other normal data types. For ex.
 
+Callback Example 1:
+```
+setTimeout(function(){
+   console.log("This line will run after a second");
+}, 1000);
+```
+
+Same function you can write as:
+```
+var callback = function(){
+   console.log("This line will run after a second");
+};
+setTimeout(callback, 1000);
+```
