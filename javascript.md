@@ -29,3 +29,14 @@ setTimeout(() => {
       console.log("This line will run after a second");
 }, 1000);
 ```
+Excercise 1: Print a table of 2 on console using callback.
+
+Solution:
+```
+function PrintTable(sequence){
+    console.log(sequence * 2);
+ }
+ 
+var sequence = [1,2,3,4,5,6,7,8,9,10];
+sequence.forEach(PrintTable);
+```
