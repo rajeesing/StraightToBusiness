@@ -97,15 +97,43 @@ Output:
 
 
 That's all we need to just enable a basic change data capture feature on a database and tables.
+In case if you would like to know the which column exactly has changed, use below query:
+```
+DECLARE @begin_time datetime
+DECLARE @end_time datetime
+DECLARE @from_lsn binary(10)
+DECLARE @to_lsn binary(10);
+SET @begin_time = GETDATE()-1;
+SET @end_time = GETDATE();
+SELECT @from_lsn = sys.fn_cdc_map_time_to_lsn('smallest greater than', @begin_time);
+SELECT @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', @end_time);
 
+DECLARE @Col_Id INT
+DECLARE @Col_FirstName INT
+DECLARE @Col_MiddleName INT
+DECLARE @Col_LastName INT
+DECLARE @Col_DesignationId INT
+
+SET @Col_Id = sys.fn_cdc_get_column_ordinal('dbo_Employee','Id')
+SET @Col_FirstName = sys.fn_cdc_get_column_ordinal('dbo_Employee','FirstName')
+SET @Col_MiddleName = sys.fn_cdc_get_column_ordinal('dbo_Employee','MiddleName')
+SET @Col_LastName = sys.fn_cdc_get_column_ordinal('dbo_Employee','LastName')
+SET @Col_DesignationId = sys.fn_cdc_get_column_ordinal('dbo_Employee','DesignationId')
+
+SELECT *, sys.fn_cdc_is_bit_set(@Col_Id, __$update_mask) AS 'Updated_Id'
+,sys.fn_cdc_is_bit_set(@Col_FirstName, __$update_mask) AS 'Updated_FirstName'
+,sys.fn_cdc_is_bit_set(@Col_MiddleName, __$update_mask) AS 'Updated_MiddleName'
+,sys.fn_cdc_is_bit_set(@Col_LastName, __$update_mask) AS 'Updated_LastName'
+,sys.fn_cdc_is_bit_set(@Col_DesignationId, __$update_mask) AS 'Updated_DesignationId'
+FROM cdc.fn_cdc_get_all_changes_dbo_Employee(@from_lsn, @to_lsn, 'all');
+```
 ---
 
 # Data Utilization
 ## Problem
 Let's look at what we have been doing. Whenever we need to gather change information, we transfer batches of data from source to destination at regular intervals or take a backup of tables where data are residing and later we restore to the location where we want. The value we are missing here is real-time analytics and this might be the issue in terms of resource utilization and data inconsistencies in some cases.
 
-![image](https://github.com/rajeesing/cdc/assets/7796293/bf01ab25-37a1-437b-b133-58659b70a847)
-
+![1](https://github.com/rajeesing/StraightToBusiness/assets/7796293/1a27d14a-a98e-4293-84b7-a9da8582251a)
 
 ## Solution
 
@@ -126,6 +154,13 @@ static string CreateConnectionString()
     return builder.ConnectionString;
 }
 ```
+Output 1:
+
+![output](https://github.com/rajeesing/StraightToBusiness/assets/7796293/ae08adbb-3174-4e1d-a591-3b1b76bf321a)
+
+Output 2:
+
+![output1](https://github.com/rajeesing/StraightToBusiness/assets/7796293/27d93823-ac47-432a-8e6b-bbeb63768a06)
 
 
 ### 2. Debezium (Push method)
@@ -152,7 +187,9 @@ Debezium’s flexibility, lightweight architecture, and low latency streaming ma
 
 #### Debezium In Action
 
-![image](https://github.com/rajeesing/cdc/assets/7796293/d63a230b-108f-4403-bb23-5e21fc9d05eb)
+
+![2](https://github.com/rajeesing/StraightToBusiness/assets/7796293/d494a659-8ab8-414c-a2bc-bd493ce99eea)
+
 
 In order to bring Debezium into action you need the following services.
 1. **Zookeeper**:
@@ -268,7 +305,9 @@ http://localhost:9010/topic/cdcexample.cdcexample.dbo.Employee/messages?partitio
 
 ### Mirror to Azure Event Hub
 
-![image](https://github.com/rajeesing/cdc/assets/7796293/831e9ed3-8d80-4d22-98fb-ef0e8021d821)
+
+![5](https://github.com/rajeesing/StraightToBusiness/assets/7796293/8406d321-7059-4907-8cd4-9356cbc369c3)
+
 
 #### About MirrorMaker 2.0 (MM2)
 Apache Kafka MirrorMaker 2.0 (MM2) is designed to make it easier to mirror or replicate topics from one Kafka cluster to another. Mirror Maker uses the Kafka Connect framework to simplify configuration and scaling. For more detailed information on Kafka MirrorMaker, see the [Kafka Mirroring/MirrorMaker guide](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330).
