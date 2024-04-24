@@ -13,4 +13,6 @@ In this article, we are using the following tools to demonstrate database publis
 2. Azure DevOps Express
 3. Azure Data Box
    
-
+## Begin the deployment now
+1. You must know the correct credential to connect with your database.
+2. 
