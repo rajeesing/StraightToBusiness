@@ -11,8 +11,12 @@ I've made some changes in my database schema in the local environment and now th
 In this article, we are using the following tools to demonstrate database publishing:
 1. SQL Server 2022
 2. Azure DevOps Express
-3. Azure Data Box
+3. Azure Data Studio
    
 ## Begin the deployment now
 1. You must know the correct credential to connect with your database.
-2. 
+2. Open a Azure Data Studio client (download if you don't have one from here)
+3. Add a new connection of your database.
+  ![image](https://github.com/rajeesing/StraightToBusiness/assets/7796293/b609082f-86ff-4eac-b8f2-22f08421d1da)
+
+
