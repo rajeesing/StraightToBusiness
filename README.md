@@ -4,3 +4,6 @@
 
 # Topic
 1. [Learn Docker](/docker.md)
+2. [Change Data Capture](/cdc.md)
+3. [Async with Javascript](/javascript.md)
+4. [Deploy Database](/DatabaseDeployment.md)
