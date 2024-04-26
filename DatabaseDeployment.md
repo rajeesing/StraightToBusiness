@@ -14,9 +14,70 @@ In this article, we are using the following tools to demonstrate database publis
 3. Azure Data Studio
    
 ## Begin the deployment now
+
+### Create a database
+
+### Create a database project
 1. You must know the correct credential to connect with your database.
 2. Open a Azure Data Studio client (download if you don't have one from here)
 3. Add a new connection of your database.
   ![image](https://github.com/rajeesing/StraightToBusiness/assets/7796293/b609082f-86ff-4eac-b8f2-22f08421d1da)
+
+### Azure Devops Express Configuration
+
+
+### CI/CD for On-Prem Database
+
+```
+parameters:
+- name: dbName
+  displayName: Database Name
+  type: string
+  default: 
+
+trigger:
+- master
+
+stages:
+- stage: BuildProcess
+  jobs:
+  - job: BuildDACPAC
+    displayName: BuildDACPACS
+    pool:
+     name: OnPremDBVM
+     vmImage: windows-latest
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: Build ADS SQL Database Project
+      inputs:
+        command: 'build'
+        projects: '**/*.sqlproj'
+    
+- stage: dev
+  displayName: Deploy to DEV environment
+  dependsOn: BuildProcess
+  pool:
+    name: OnPremDBVM
+  jobs:
+   - deployment: DACPACDeployment
+     displayName: DACPAC Deployment to DEV
+     environment: Development
+     strategy:
+      runOnce:
+       deploy:
+         steps:
+         - task: PublishBuildArtifacts@1
+           inputs:
+             PathtoPublish: '$(Build.SourcesDirectory)\<project folder>\bin\debug\<file name>.dacpac' # this path may change based on your location
+             artifactName: 'Databases'
+             targetPath: '$(Pipeline.Workspace)'
+             publishLocation: 'Container'
+         - task: SqlDacpacDeploymentOnMachineGroup@0
+           inputs:
+             TaskType: 'dacpac'
+             DacpacFile: '$(Pipeline.Workspace)\Databases\<file name>.dacpac' # please change path based on dacpac location
+             TargetMethod: 'connectionString'
+             connectionString: 'Data Source=<sql server data source>;Initial Catalog=${{ parameters.dbName }};Encrypt=True;TrustServerCertificate=true;Integrated Security=True'
+```
 
 
