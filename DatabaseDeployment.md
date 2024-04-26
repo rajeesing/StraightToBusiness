@@ -23,10 +23,27 @@ In this article, we are using the following tools to demonstrate database publis
 3. Add a new connection of your database.
   ![image](https://github.com/rajeesing/StraightToBusiness/assets/7796293/b609082f-86ff-4eac-b8f2-22f08421d1da)
 
-### Azure Devops Express Configuration
+### Azure Devops Express Installation
+
+#### Create a project
+1. Login to your Azure Devops when which you get during installation of Devops Express
+2. On home page, click on ![image](https://github.com/rajeesing/StraightToBusiness/assets/7796293/75c233ce-88de-4af1-9abe-b3b67a6ba994) button
+3. Enter project name under DefaultCollection (or any of your choice) and hit to Create button.
+4. Select project and select "Project settings" which is generally placed bottom of the left navigations.
+5. Under Pipelines section, click on Agent Pools.
+6. In Agent Pools list page, click on "Add pool" button and create new pool. Leave the other option as default.
+7. Create a New agent from selected pool.
+   ![image](https://github.com/rajeesing/StraightToBusiness/assets/7796293/e638729e-6b2f-4baa-8a86-074905090d8d)
+8. Follow the instructions from popup window.
+![image](https://github.com/rajeesing/StraightToBusiness/assets/7796293/2ec1f13b-702f-432b-bf1f-0e0324a7a8bb)
+
+
 
 
 ### CI/CD for On-Prem Database
+
+
+
 
 ```
 parameters:
