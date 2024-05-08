@@ -7,7 +7,7 @@ HTTP (**H**yper **T**ext **T**ransfer **P**rotocol) - If you seprate Transfer wo
 
 The developers of the HTTP make sure that this is as simple as where everyone can understand easily and in plain text. User doesn't need to know the internal mechanics, how it works but it's request and responses are easily readable. For example it used following keywords called verbs to send request to other entity (server or computer).
 | VERB | DESCRIPTION |
-|------|-------------|
+|:------|:-------------|
 | **GET** | The GET method requests a representation of the specified resource. Requests using GET should only retrieve data. |
 | **POST**| The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server.|
 | **PUT**| The PUT method replaces all current representations of the target resource with the request payload.|
