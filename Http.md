@@ -22,7 +22,7 @@ The developers of the HTTP make sure that this is as simple as where everyone ca
 Http protocol is stateless in nature. It means you cannot persist any value between the transaction. In other words, one request has no memory of other requests. Each request is unique in nature and separately generated from each other. Requests are not connected to each other by any mean. But why is that? Http is designed not to fall in situation of request sequencing which makes this protocol simple and easy to use.
 
 ### Solution
-Sessions, that stored the states between client (browser) and server. When the web page loads it sends the information back and forth and store the information temporarily in form of cookies.
+Sessions, that stored the states between client (browser) and server. When the web page loads it sends the information back and forth and store the information temporarily in form of cookies. When http pass information back-n-forth and uses header to transmit information. 
 
 
 
