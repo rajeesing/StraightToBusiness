@@ -32,6 +32,7 @@ Like most of the technologies in the today's world, evolved significantly over t
 | Version | DESCRIPTION |
 |:------|:-------------|
 |Http/0.9| Initially there was no version number. This was given later point just to differentiate from other version. This is very simple and one line protocol. Get is the only method provided at the time which has resource url with any server, protocol infomation. In this version, there was no headers available which means only one format can be transmitted which is HTML (Hyper Text Transfer Protocol)|
+|Http 1.0| |
 |Http 1.1| |
 |Http 2 | |
 |Http 3 | |
