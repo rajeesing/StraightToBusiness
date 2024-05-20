@@ -23,7 +23,8 @@ In this article, we are using the following tools to demonstrate database publis
 3. Add a new connection of your database.
   ![image](https://github.com/rajeesing/StraightToBusiness/assets/7796293/b609082f-86ff-4eac-b8f2-22f08421d1da)
 
-### Azure Devops Express Installation
+### Azure DevOps Express Installation
+Having Azure DevOps access may be costly or time bound which you can use only for some time without paying anything. But the Solution for that is Azure DevOps Express which you can download locally and install on your PC.
 
 #### Create a project
 1. Login to your Azure Devops when which you get during installation of Devops Express
