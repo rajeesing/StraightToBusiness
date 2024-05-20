@@ -16,6 +16,7 @@ In this article, we are using the following tools to demonstrate database publis
 ## Begin the deployment now
 
 ### Create a database
+Like any software project, the backbone is a database. This is the source of information used to feed data to your application to process. There are many database types out there in the market and you can choose anyone of them based on your need. In this tutorial, we are using SQL Server, and all examples are based on that. 
 
 ### Create a database project
 1. You must know the correct credential to connect with your database.
