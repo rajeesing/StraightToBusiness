@@ -31,13 +31,13 @@ Like most of the technologies in the today's world, evolved significantly over t
 
 HTTP uses a “<major>.<minor>” numbering scheme to indicate versions of the protocol. The protocol versioning policy is intended to allow the sender to indicate the format of a message and its capacity for understanding further HTTP communication, rather than the features obtained via that communication
 
-| Version | DESCRIPTION |
-|:------|:-------------|
-|Http/0.9| Initially there was no version number. This was given later point just to differentiate from other version. This is very simple and one line protocol. Get is the only method provided at the time which has resource url with any server, protocol infomation. In this version, there was no headers available which means only one format can be transmitted which is HTML (Hyper Text Transfer Protocol)|
-|Http 1.0| Couple of features added to this. Added version information, status code to tell if request was successfully processed or not, introduce header concept. Now possible to send different content type other than html. |
-|Http 1.1|A connection could be reused that saves time significantly. Addition to this were added cache controls and content negotiation with new http methods and few more http headers.|
-|Http 2 | |
-|Http 3 | |
+| Version | Release On|DESCRIPTION |
+|:------|:---------|:-------------|
+|Http/0.9|1991| Initially there was no version number. This was given later point just to differentiate from other version. This is very simple and one line protocol. Get is the only method provided at the time which has resource url with any server, protocol infomation. In this version, there was no headers available which means only one format can be transmitted which is HTML (Hyper Text Transfer Protocol)|
+|Http 1.0|1996| Couple of features added to this. Added version information, status code to tell if request was successfully processed or not, introduce header concept. Now possible to send different content type other than html. |
+|Http 1.1|1997|A connection could be reused that saves time significantly. Addition to this were added cache controls and content negotiation with new http methods and few more http headers.|
+|Http 2 |2015| Introduce multiplexing that allows multiple http requests at the single time. This is successor of http 1.1, so adopting http 2 is not required any server side change and easy migration. |
+|Http 3 | - |Introducing a very new called QUIC (Quick UDP Internet Connection) which is an alternate solution of TCP limitation and solution of latency over the distance.|
 
 
 
