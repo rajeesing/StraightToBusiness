@@ -29,6 +29,8 @@ Sessions, that stored the states between client (browser) and server. When the w
 ## Versions
 Like most of the technologies in the today's world, evolved significantly over the time. Some features are discontinued, absolete and new features being added. Same with http. 
 
+HTTP uses a “<major>.<minor>” numbering scheme to indicate versions of the protocol. The protocol versioning policy is intended to allow the sender to indicate the format of a message and its capacity for understanding further HTTP communication, rather than the features obtained via that communication
+
 | Version | DESCRIPTION |
 |:------|:-------------|
 |Http/0.9| Initially there was no version number. This was given later point just to differentiate from other version. This is very simple and one line protocol. Get is the only method provided at the time which has resource url with any server, protocol infomation. In this version, there was no headers available which means only one format can be transmitted which is HTML (Hyper Text Transfer Protocol)|
