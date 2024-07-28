@@ -35,7 +35,7 @@ HTTP uses a “<major>.<minor>” numbering scheme to indicate versions of the p
 |:------|:-------------|
 |Http/0.9| Initially there was no version number. This was given later point just to differentiate from other version. This is very simple and one line protocol. Get is the only method provided at the time which has resource url with any server, protocol infomation. In this version, there was no headers available which means only one format can be transmitted which is HTML (Hyper Text Transfer Protocol)|
 |Http 1.0| Couple of features added to this. Added version information, status code to tell if request was successfully processed or not, introduce header concept. Now possible to send different content type other than html. |
-|Http 1.1| |
+|Http 1.1|A connection could be reused that saves time significantly. Addition to this were added cache controls and content negotiation with new http methods and few more http headers.|
 |Http 2 | |
 |Http 3 | |
 
