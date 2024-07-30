@@ -376,7 +376,8 @@ That project (Apache Kafka distribution) comes with `kafka-console-consumer.bat`
 1. Login to your Azure Credential
 2. Choose your **Event Hubs Namespace**
 3. There should be Event Hubs created with the name ```cdcexample.cdcexample.dbo.employee```
-![image](https://github.com/rajeesing/cdc/assets/7796293/3a7e7fa2-2ccc-40ed-ad1f-d60d5365800c)
+<img width="658" alt="image" src="https://github.com/user-attachments/assets/c98a7a35-0e9e-46d0-8018-3a9ce12075dd">
+
 
 5. Create a logic app or Azure function and use an Event hub trigger to consume payload.
    
