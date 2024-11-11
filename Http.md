@@ -27,7 +27,7 @@ Http protocol is stateless in nature. It means you cannot persist any value betw
 Sessions, that stored the states between client (browser) and server. When the web page loads it sends the information back and forth and store the information temporarily in form of cookies. When http pass information back-n-forth and uses header to transmit information. 
 
 ## Versions
-Like most of the technologies in the today's world, evolved significantly over the time. Some features are discontinued, absolete and new features being added. Same with http. 
+Like most of the technologies in the today's world, all evolved significantly over the time. Some features are discontinued, absolete and new features being added. Same with http. 
 
 HTTP uses a “<major>.<minor>” numbering scheme to indicate versions of the protocol. The protocol versioning policy is intended to allow the sender to indicate the format of a message and its capacity for understanding further HTTP communication, rather than the features obtained via that communication
 
